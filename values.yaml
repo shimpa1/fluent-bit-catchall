@@ -1,0 +1,5 @@
+namespace: monitoring
+
+appName: fluent-bit
+
+lokiHost: 100.70.2.34
