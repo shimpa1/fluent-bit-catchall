@@ -41,8 +41,7 @@ data:
     [FILTER]
         Name                   modify
         Match                  kube.*
-        Add                    cluster_name {{ .Values.clusterName }}
-
+        Add                    cluster_name {{ .Values.clusterName }}   
     [FILTER]
         Name                   kubernetes
         Match                  kube.*
@@ -57,8 +56,8 @@ data:
     [OUTPUT]
         Name                   loki
         Match                  *
-        Host                   loki.monitoring.svc.cluster.local
-        Port                   3100
+        Host                   {{ .Values.lokiHost }}
+        Port                   {{ .Values.lokiPort }}
         Labels                 cluster_name=$cluster_name,app=$kubernetes['labels']['app'],job=$kubernetes['labels']['job'],context=$log['context']
         Label_Keys             $kubernetes['pod_name'],$kubernetes['namespace_name'],$kubernetes['pod_id']
         Remove_Keys            kubernetes_labels_app,kubernetes_labels_job,__stream_shard__,log_processed

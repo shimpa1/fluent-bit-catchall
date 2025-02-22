@@ -4,4 +4,7 @@ appName: fluent-bit
 
 lokiHost: <hostname>
 
+lokiPort: 3100
+
 clusterName: console
+

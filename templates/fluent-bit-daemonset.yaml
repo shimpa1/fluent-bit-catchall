@@ -13,11 +13,11 @@ spec:
   template:
     metadata:
       labels:
-        app: fluent-bit
+          app: {{ .Values.appName }}
     spec:
-      serviceAccountName: fluent-bit
+      serviceAccountName: {{ .Values.appName }}
       containers:
-      - name: fluent-bit
+      - name: {{ .Values.appName }}
         image: fluent/fluent-bit:2.1
         env:
         - name: CLUSTER_NAME
