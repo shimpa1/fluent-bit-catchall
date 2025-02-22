@@ -42,7 +42,6 @@ data:
         Name                   modify
         Match                  kube.*
         Add                    cluster_name {{ .Values.clusterName }}   
-
     [FILTER]
         Name                   kubernetes
         Match                  kube.*
